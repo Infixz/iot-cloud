@@ -1,14 +1,12 @@
 # -*- coding: utf-8 -*-
-
 import socket
 import struct
 import hashlib
 import threading,random
  
 # config
-server_addr = "192.168.1.90"
-port = 1111
- 
+server_addr = "42.96.204.227"
+port = 8080 
 connectionlist = {}
  
 def sendMessage(message):
