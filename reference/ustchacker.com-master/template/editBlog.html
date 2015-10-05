@@ -1,0 +1,42 @@
+{%extends 'main.html'%}
+{%include 'head.html' %}
+
+{%block content%}
+<script src='/static/postCheck.js'></script>
+<div class='col-md-offset-9 col-md-3'>
+	<a href='/markdown' class='text-danger h5' target='_blank'>如何使用Markdown编辑文档？</a>
+</div>
+<div class='col-md-offset-1 col-md-10'>
+<form action='/editBlog/{{idvalue}}' method='post' class='' name='form'>
+	<div class='form-group'>
+		<select name='tag'>
+			<option value='' class='text-muted'>请选择主题</option>
+			<option value='Python' {%if tag=='Python'%}selected='selected'{%end%}>Python</option>
+			<option value='Hack' {%if tag=='Hack'%}selected='selected'{%end%}>Hack</option>
+			<option value='RaspberryPi' {%if tag=='RaspberryPi'%}selected='selected'{%end%}>RaspberryPi</option>
+			<option value='Arduino' {%if tag=='Arduino'%}selected='selected'{%end%}>Arduino</option>
+			<option value='Others' {%if tag=='Others'%}selected='selected'{%end%}>Others</option>
+		</select>
+		<select name='category'>
+			<option value='' class='text-muted'>请选择类别</option>
+			<option value='new' class='text-success' {%if category=='new'%}selected='selected'{%end%}>原创文章</option>
+			<option value='reprint' {%if category=='reprint'%}selected='selected'{%end%}>转载文章</option>
+			<option value='ask' class='text-danger' {%if category=='ask'%}selected='selected'{%end%}>提问</option>
+		</select>
+		<label class='sr-only'>标题</label>
+		<input type='text' name='title' class='form-control' placeholder='请输入标题' value='{{title}}'/>
+	</div>
+	<div class='form-group'>
+		<label class='sr-only'>正文</label>
+		<textarea rows='20' type='text' name='blog' class='form-control' placeholder='请输入文章正文'>{{content}}</textarea>
+	</div>
+	<div class='col-md-10'>
+		<iframe src='/uploadPic' frameborder=0 class='col-md-12'>
+		</iframe>
+	</div>
+	<div class='col-md-2'>
+	<button type='submit' class='btn btn-warning' onclick='return checkform()'>发送</button>
+</div>
+</form>
+</div>
+{%end%}

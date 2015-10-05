@@ -1,0 +1,27 @@
+{%extends 'main.html'%}
+{%include 'head.html'%}
+
+{%block content%}
+<div class='col-md-10 col-md-offset-1'>
+	<p class='text-info h1'>查收确认信</p>
+	<p class='text-muted h4'>确认信已经发到你的邮箱<label class='text-success h4'>{{mail}}</label> ，你需要点击邮件中的确认链接来完成注册。</p>
+	<br/>
+	<br/>
+	<br/>
+	<br/>
+	<br/>
+	<br/>
+	<br/>
+	<br/>
+	<br/>
+	<br/>
+
+	<p class='text-info h4'>没有收到确认信怎么办？······</p>
+	<p class='text-muted h5'>
+	检查一下上面Email地址是否正确，错了就<a href='/register'>重新注册</a>一次吧:)<br/>
+	看看是否在邮箱的垃圾箱里<br/>
+	稍等几分钟，若仍旧没收到确认信，让USTC Hacker<a href='/sendMail?mail={{mail}}'>重发一封</a><br/>
+	</p>
+</div>
+{%end%}
+

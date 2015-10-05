@@ -1,0 +1,21 @@
+{%extends 'main.html'%}
+{%include 'head.html'%}
+{%block content%}
+<p class='text-info h3'><a href='/user/{{who}}'>{{who}}</a>的粉丝：</p>
+
+{%for i in range(fansN)%}
+<div class='col-md-2'>
+	<dl>
+		<dt>
+			<a href='/user/{{fans[i]}}'>
+				<img src='/{{headpics[i]}}' class='img-rounded' height=80 width=80>
+			</a>
+		</dt>
+		<dd>
+			<a class='text-info h4' href='/user/{{fans[i]}}'>{{fans[i]}}</a>
+		</dd>
+	</dl>
+</div>
+{%end%}
+{%end%}
+
